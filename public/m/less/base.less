@@ -1,0 +1,109 @@
+// 初始化代码，由于mui已经帮我们写好的差不多了，我们只需要根据设计图的要求，对样式覆盖就可以
+@main-color : #006699;
+
+
+@font-color : #666;
+* {
+    padding: 0px;
+    margin: 0px;
+
+}
+
+body {
+    background-color: #fff;
+    padding: .45rem 0;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    vertical-align: middle;
+    // 取出图片底部空白间隙
+}
+input[type="text"] {
+    border: none;
+}
+//头部样式
+#header {
+    width: 100vw;
+    height: .45rem;
+    padding: 0px 45px;
+    background-color: @main-color;
+    color: #fff;
+    text-align: center;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+    h4 {
+        margin: 0px;
+        line-height: .45rem;
+        text-align: center;
+        font-weight: normal;
+    }
+    a {
+        position: absolute;
+        width: .45rem;
+        height: .45rem;
+        line-height: .45rem;
+        color: #fff;
+        top: 0px;
+        &.icon-back {
+            left: 0px;
+           
+        }
+        &.icon-search {
+            right: 0px;
+        }
+    }
+    form {
+        // position: relative;
+        // padding: 10px;
+        padding-top: .05rem;
+        input[type="text"] {
+            width: 2.85rem;
+            height: .35rem;
+            border: 1px solid @main-color;
+            font-size: .14rem;
+            border-radius: .05rem;
+            margin-bottom: 0px;
+        }
+    }
+
+}
+
+
+// 底部样式区域
+#footer {
+    height: .45rem;
+    background-color: @main-color;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100vw;
+    z-index: 999;
+     ul{
+        display: flex;
+        li {
+            flex: 25vw;
+            &.active {
+                a {
+                    color: orange;
+                }
+            }
+            a {
+                color: #fff;
+                padding: .08rem 0;
+                display: block;
+                text-align: center;
+                span{
+                    padding-top: .02rem;
+                    display: block;
+
+                }
+            }
+        }
+    }
+}

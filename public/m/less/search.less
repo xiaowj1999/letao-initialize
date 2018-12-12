@@ -1,0 +1,51 @@
+@import "base.less";
+
+#checkout{
+    form {
+        position: relative;
+        padding: 10px;
+        input[type="text"] {
+            width: 2.95rem;
+            height: .3rem;
+            border: 1px solid @main-color;
+            font-size: .14rem;
+            border-radius: .05rem 0px 0px .05rem;
+            margin-bottom: 0px;
+        }
+        .mui-btn-primary {
+            background-color: @main-color;
+            position: absolute;
+            border: none;
+            right: .11rem;
+            top: .1rem;
+            width: .6rem;
+            height: .3rem;
+        }
+    }
+    
+}
+
+#history {
+    padding: 0px .1rem;
+    >.history-title {
+        // padding: 0px 0.1rem;
+        position: relative;
+        span {
+            font-size: 0.14rem;
+            line-height: .3rem;
+        }
+        a {
+            position: absolute;
+            right: .1rem;
+            top: .08rem;
+            color: @font-color;
+        }
+    }
+    >.history-content {
+        height: .4rem;
+        border: 1px solid #ccc;
+        border-radius: .05rem;
+        line-height: .4rem;
+        padding-left: .1rem;
+    }
+}
