@@ -43,7 +43,7 @@
     <section id="checkout">
         <form action="#">
             <input type="text" placeholder="请输入要搜索商品">
-            <button type="button" class="mui-btn mui-btn-primary">搜索</button>
+            <button type="button" class="mui-btn mui-btn-primary btn-search">搜索</button>
         </form>
     </section>
     <!-- 搜索历史区域 -->
@@ -54,9 +54,7 @@
         </div>
         <div class="history-content">
             <ul class="mui-table-view">
-                <li class="mui-table-view-cell">Item 1
-                    <span class="mui-badge mui-badge-primary fa fa-close"></span>
-                </li>
+                
                 <li class="mui-table-view-cell">Item 2
                     <span class="mui-badge mui-badge-success fa fa-close"></span>
                 </li>
@@ -66,12 +64,43 @@
             </ul>
         </div>
     </main>
-
+        <!-- 底部区域 -->
+        <footer id="footer">
+                <ul>
+                    <li class="active">
+                        <a href="index.html" class="fa fa-home">
+                            <span>首页</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="category.html" class="fa fa-bars">
+                            <span>分类</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="fa fa-shopping-cart">
+                            <span>购物车</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="fa fa-user">
+                            <span>会员中心</span>
+                        </a>
+                    </li>
+                </ul>
+            </footer>
 
     <script src="./lib/zepto/zepto.min.js"></script>
     <script src="./lib/mui/js/mui.min.js"></script>
     <script src="./lib/artTemplate/template-web.js"></script>
     <script src="./js/search.js"></script>
+    <script id="searchTpl" type="text/html">
+        {{each list value index}}
+        <li class="mui-table-view-cell" >{{value}}
+            <span class="mui-badge mui-badge-primary fa fa-close btn-close" data-index="{{index}}"></span>
+        </li>
+        {{/each}} 
+    </script>
 </body>
 
 </html>
