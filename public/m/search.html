@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -10,32 +11,33 @@
     <link rel="stylesheet/less" href="./less/search.less">
     <script src="./lib/less/less.js"></script>
     <script>
-            // 因为这个JS对页面渲染有影响放到前面写
-            function getHtmlFontsize() {
-                // 假设一个设计稿的宽度 750
-                var DesignWidth = 750;
-                var DesignFontSize = 200;
-                // 获取当前视口的宽度
-                var nowWidth = document.documentElement.clientWidth;
-                /*750 / 200 == 375 / 100
-                 设计稿宽度 / 设计稿根元素 == 当前屏幕宽度 / 当前屏幕根元素
-                 375 / (750 / 200) == 100
-                 当屏幕宽度  / (设计稿宽度 / 设计稿的根元素)
-                 320 / (750 / 200)  == 85.3333px */
-                /* 4 / 2 == 2 / x
-                 2 / ( 4 / 2 )  == 1*/
-                var nowFontSize = nowWidth / (DesignWidth / DesignFontSize);
-                document.documentElement.style.fontSize = nowFontSize + 'px';
-            }
-            getHtmlFontsize();
-            window.addEventListener('resize', getHtmlFontsize);
-        </script>
+        // 因为这个JS对页面渲染有影响放到前面写
+        function getHtmlFontsize() {
+            // 假设一个设计稿的宽度 750
+            var DesignWidth = 750;
+            var DesignFontSize = 200;
+            // 获取当前视口的宽度
+            var nowWidth = document.documentElement.clientWidth;
+            /*750 / 200 == 375 / 100
+             设计稿宽度 / 设计稿根元素 == 当前屏幕宽度 / 当前屏幕根元素
+             375 / (750 / 200) == 100
+             当屏幕宽度  / (设计稿宽度 / 设计稿的根元素)
+             320 / (750 / 200)  == 85.3333px */
+            /* 4 / 2 == 2 / x
+             2 / ( 4 / 2 )  == 1*/
+            var nowFontSize = nowWidth / (DesignWidth / DesignFontSize);
+            document.documentElement.style.fontSize = nowFontSize + 'px';
+        }
+        getHtmlFontsize();
+        window.addEventListener('resize', getHtmlFontsize);
+    </script>
 </head>
+
 <body>
-      <!-- letao搜索区域 -->
-      <header id="header">
-            <a href="index.html" class="fa fa-arrow-left icon-back"></a>
-            <h4>搜索中心</h4>
+    <!-- letao搜索区域 -->
+    <header id="header">
+        <a href="javascript:history.back()" class="fa fa-arrow-left icon-back"></a>
+        <h4>搜索中心</h4>
     </header>
     <!-- 搜索框区域 -->
     <section id="checkout">
@@ -51,18 +53,25 @@
             <a href="#" class="fa fa-trash">清空记录</a>
         </div>
         <div class="history-content">
-            <ul>
-                <li>
-                   <p> 没有搜索记录</p>
+            <ul class="mui-table-view">
+                <li class="mui-table-view-cell">Item 1
+                    <span class="mui-badge mui-badge-primary fa fa-close"></span>
+                </li>
+                <li class="mui-table-view-cell">Item 2
+                    <span class="mui-badge mui-badge-success fa fa-close"></span>
+                </li>
+                <li class="mui-table-view-cell">Item 3
+                    <span class="mui-badge  mui-badge-primary fa fa-close"></span>
                 </li>
             </ul>
         </div>
     </main>
 
 
-        <script src="./lib/zepto/zepto.min.js"></script>
-        <script src="./lib/mui/js/mui.min.js"></script>
-        <script src="./lib/artTemplate/template-web.js"></script>
-        <script src="./js/index.js"></script>
+    <script src="./lib/zepto/zepto.min.js"></script>
+    <script src="./lib/mui/js/mui.min.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./js/search.js"></script>
 </body>
+
 </html>
