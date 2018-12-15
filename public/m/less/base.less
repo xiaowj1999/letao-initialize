@@ -108,3 +108,79 @@ input[type="text"] {
         }
     }
 }
+
+
+//搜索
+form {
+    // position: relative;
+    padding: 10px;
+    display: flex;
+    position: relative;
+    input[type="text"] {
+        // width: 2.95rem;
+        flex: 1;
+        height: .3rem;
+        border: 1px solid @main-color;
+        font-size: .14rem;
+        border-radius: .05rem 0px 0px .05rem;
+        margin-bottom: 0px;
+    }
+    .mui-btn-primary {
+        background-color: @main-color;
+        position: absolute;
+        border: none;
+        right: .04rem;
+        // top: .1rem;
+        width: .6rem;
+        height: .3rem;
+    }
+    .mui-btn {
+        border-radius: 0px .03rem .03rem 0px;
+    }
+}
+
+//商品展示
+
+
+    .sport-content,.sale-content {
+        
+        ul {
+            // padding: 0.1rem 0.1rem;
+            // padding-bottom: .1rem;
+            padding-top: .1rem;
+           display: flex;
+            flex-wrap: wrap;
+            li {
+                padding: 0 .05rem;
+                // box-shadow: 0px 0px 2px 0px #ccc;
+                 width: 50%;
+                //  &:nth-of-type(odd){
+                //      margin-right: .1rem;
+                //  }
+                a {
+                    // border: 1px solid #ccc;
+                 box-shadow: 0px 0px 2px 0px #ccc;
+                    
+                    // padding: .05rem;
+                    text-align: center;
+                    display: block;
+                    
+                    img {
+                        width: 100%;
+                    }
+                    p.price{
+                        margin-bottom: .05rem;
+                        span {
+                            color: red;
+                        }
+                    }
+                    p.buy {
+                        padding-bottom: .05rem;
+                        .mui-btn-primary {
+                             background-color: @main-color;
+                         }
+                    }
+                }
+            }
+        }
+    }

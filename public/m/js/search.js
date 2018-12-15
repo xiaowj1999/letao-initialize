@@ -2,6 +2,7 @@ $(function () {
     //点击搜索按钮，将input中的内容存储在本地内存中，从而取出本地内存中的内容，渲染在页面上
     //1 给按钮添加点击事件,
     $(".btn-search").on("tap",function () {
+        // alert(1);
         var search = $("#checkout input").val();
 
     //1.1 判断输入的内容是否为空
@@ -30,7 +31,11 @@ $(function () {
 
         //1.5 添加完搜索记录，用查询重新渲染到页面上
         renderHtml();
+
+        //1.6 同时跳转搜索商品页面
+        location="productList.html?search="+search;
     })
+    renderHtml();
     //2 查询数据
     function renderHtml() {
         //2.1 获取记录的值，转成数组
@@ -41,24 +46,33 @@ $(function () {
 
     //2.3 调用模板
     var html = template("searchTpl",arr);
-    $(".history-content ul").html(html);
+    $(".history-content ul").html(html)
     }
 
     //3 删除数据
     //3.1 给所有删除x绑定一个索引 根据索引来删除
-    //3.2 给每一个x符号注册点击事件，由于是异步请求，需要用到事件委托、
-    $(".history-content ul").on("tap","li .btn-close",function () {
+    //3.2 给每一个x符号注册点击事件，由于是异步请求，需要用tml(html);到事件委托、
+    $(".history-content ul").on("tap",".fa-close",function () {
+        // alert(1);
         //3.3 获取所有的数组，根据当前的索引去删除这个元素
         var arr = JSON.parse(localStorage.getItem("history")) || [];
         // console.log(arr);
-         var index = $(this).data("index");
+        var index = $(this).data("index");
         // console.log(index);
         arr.splice(index,1);
 
         //3.4 删除完后将数据重新保存在存储里面
         localStorage.setItem("history",JSON.stringify(arr));
-
+    
         //3.5 将新存储的数据重新渲染到页面上
+        renderHtml();
+    })
+
+    //4 清空搜索记录
+    //4.1 给清空记录添加点击事件
+    $(".fa-trash").on("tap",function () {
+        // alert(1);
+        localStorage.removeItem("history");
         renderHtml();
     })
 
