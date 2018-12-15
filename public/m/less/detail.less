@@ -1,0 +1,53 @@
+@import "base.less";
+
+#footer {
+    background-color: #cccccc;
+    ul{
+        display: flex;
+        li {
+            padding: .05rem;
+            text-align: center;
+            line-height: .4rem;
+            flex: 1;
+            &:first-child {
+                width: .625rem;
+                flex: none;
+                
+            }
+            button {
+                width: 100%;
+               
+            }
+            a{
+                font-size: .2rem;
+                color: #000;
+            }
+        }
+    }
+}
+
+
+#main {
+    font-size: .14rem;
+    ul {
+        li {
+            &:nth-of-type(2){
+                span {
+                    font-size: .18rem;
+                    color: #f00;
+                    font-weight: bold;
+                }
+            }
+            >.mui-numbox {
+                margin: 0px .1rem;
+            }
+        }
+        
+        .product-size {
+            line-height: .38rem;
+            .btn-size {
+                margin: 0 .02rem;
+            }
+         }
+    }
+}

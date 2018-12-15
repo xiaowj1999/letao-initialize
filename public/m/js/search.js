@@ -12,6 +12,8 @@ $(function () {
     }
     //1.2 获取之前的记录，如果有就获取值，将数组转成json.parse,没有就使用空数组
     var res = localStorage.getItem("history");
+    console.log(res);
+    
     var arr;
     if(res){
         arr = JSON.parse(res);

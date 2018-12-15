@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -38,72 +39,79 @@
         <a href="javascript:history.back()" class="fa fa-arrow-left icon-back"></a>
         <h4>商品列表</h4>
     </header>
-    <!-- 搜索框区域 -->
-    <section id="checkout">
-        <form action="#">
-            <input type="text" placeholder="请输入要搜索商品">
-            <button type="button" class="mui-btn mui-btn-primary btn-search">搜索</button>
-        </form>
-    </section>
 
     <main id="main">
-        <div class="sale-title">
-            <ul>
-                <li>
-                    <a href="#">上架时间
-                        <i class="fa fa-angle-down"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">价格
-                        <i class="fa fa-angle-down"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">销量
-                        <i class="fa fa-angle-down"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">折扣
-                        <i class="fa fa-angle-down"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="sale-content">
-            <ul>
-                <li>
-                    <a href="#">
-                        <img src="./images/product.jpg" alt="">
-                        <p>adidas阿迪达斯 男式 场下休闲篮球鞋S83700</p>
-                        <p class="price">
-                            <span>￥560</span>
-                            <del>￥888</del>
-                        </p>
-                        <P class="buy">
-                            <button type="button" class="mui-btn mui-btn-primary">立即购买</button>
-                        </P>
-                    </a>
+        <!-- <div class="mui-scroll-wrapper">
+            <div class="mui-scroll">
+                这里放置真实显示的DOM内容 -->
+                <!-- 搜索框区域 -->
+                <section id="checkout">
+                    <form action="#">
+                        <input type="text" placeholder="请输入要搜索商品">
+                        <button type="button" class="mui-btn mui-btn-primary btn-search">搜索</button>
+                    </form>
+                </section>
 
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="./images/detail.jpg" alt="">
-                        <p>adidas阿迪达斯 男式 场下休闲篮球鞋S83700</p>
-                        <p class="price">
-                            <span>￥560</span>
-                            <del>￥888</del>
-                        </p>
-                        <P class="buy">
-                            <button type="button" class="mui-btn mui-btn-primary">立即购买</button>
-                        </P>
-                    </a>
+                <div class="sale-title">
+                    <ul>
+                        <li>
+                            <a href="#">上架时间
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">价格
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">销量
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">折扣
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sale-content">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <img src="./images/product.jpg" alt="">
+                                <p>adidas阿迪达斯 男式 场下休闲篮球鞋S83700</p>
+                                <p class="price">
+                                    <span>￥560</span>
+                                    <del>￥888</del>
+                                </p>
+                                <P class="buy">
+                                    <button type="button" class="mui-btn mui-btn-primary">立即购买</button>
+                                </P>
+                            </a>
 
-                </li>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="./images/detail.jpg" alt="">
+                                <p>adidas阿迪达斯 男式 场下休闲篮球鞋S83700</p>
+                                <p class="price">
+                                    <span>￥560</span>
+                                    <del>￥888</del>
+                                </p>
+                                <P class="buy">
+                                    <button type="button" class="mui-btn mui-btn-primary">立即购买</button>
+                                </P>
+                            </a>
 
-            </ul>
-        </div>
+                        </li>
+
+                    </ul>
+                </div>
+            <!-- </div>
+        </div> -->
+
     </main>
 
     <!-- 底部区域 -->
@@ -136,6 +144,24 @@
     <script src="./lib/mui/js/mui.min.js"></script>
     <script src="./lib/artTemplate/template-web.js"></script>
     <script src="./js/productList.js"></script>
-    <script id="searchTpl" type="text/html">
+    <script id="productTpl" type="text/html">
+        {{each data value}}
+        <li>
+            <a href="#">
+                    <img src="./images/detail.jpg" alt="">
+                    <p>{{value.proName}}</p>
+                    <p class="price">
+                        <span>￥{{value.price}}</span>
+                        <del>￥{{value.oldPrice}}</del>
+                    </p>
+                    <P class="buy">
+                        <button type="button" class="mui-btn mui-btn-primary btn-buy">立即购买</button>
+                    </P>
+                </a>
+
+            </li>
+            {{/each}}
+    </script>
 </body>
+
 </html>
