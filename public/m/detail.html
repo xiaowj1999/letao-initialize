@@ -37,41 +37,9 @@
     <main id="main">
         <div class="mui-scroll-wrapper">
             <div class="mui-scroll">
-                <!--这里放置真实显示的DOM内容-->
-                <section id="slide">
-                    <div class="mui-slider">
-                        <div class="mui-slider-group mui-slider-loop">
-                            <!--支持循环，需要重复图片节点-->
-                            <div class="mui-slider-item mui-slider-item-duplicate">
-                                <a href="#">
-                                    <img src="./images/detail.jpg" />
-                                </a>
-                            </div>
-                            <div class="mui-slider-item">
-                                <a href="#">
-                                    <img src="./images/detail.jpg" />
-                                </a>
-                            </div>
-                            <div class="mui-slider-item">
-                                <a href="#">
-                                    <img src="./images/detail.jpg" />
-                                </a>
-                            </div>
-
-                            <!--支持循环，需要重复图片节点-->
-                            <div class="mui-slider-item mui-slider-item-duplicate">
-                                <a href="#">
-                                    <img src="./images/detail.jpg" />
-                                </a>
-                            </div>
-                        </div>
-                        <div class="mui-slider-indicator">
-                            <div class="mui-indicator mui-active"></div>
-                            <div class="mui-indicator"></div>
-                        </div>
-                    </div>
-                </section>
-                <ul class="mui-table-view">
+                
+                <section id="productDet">
+                   <ul class="mui-table-view ">
                     <li class="mui-table-view-cell">
                         名称:
                         <strong>李宁闪击篮球鞋驭帅10镭射队尚4男韦德之道空袭中高帮队尚3.5球鞋</strong>
@@ -100,6 +68,7 @@
                         <span>20</span>件
                     </li>
                 </ul>
+                </section>
             </div>
         </div>
 
@@ -111,10 +80,10 @@
                 <a href="index.html" class="fa fa-shopping-cart"> </a>
             </li>
             <li>
-                <button type="button" class="mui-btn mui-btn-danger">加入购物车</button>
+                <button type="button" class="mui-btn mui-btn-danger btn-add">加入购物车</button>
             </li>
             <li>
-                <button type="button" class="mui-btn mui-btn-warning">立即购买</button>
+                <button type="button" class="mui-btn mui-btn-warning btn-buy">立即购买</button>
             </li>
         </ul>
     </footer>
@@ -122,7 +91,71 @@
     <script src="./lib/mui/js/mui.min.js"></script>
     <script src="./lib/artTemplate/template-web.js"></script>
     <script src="./js/detail.js"></script>
+    <script id="detailTpl" type="text/html">
+        <section id="slide">
+            <div class="mui-slider">
+                <div class="mui-slider-group mui-slider-loop">
+                    <!--支持循环，需要重复图片节点-->
+                    <div class="mui-slider-item mui-slider-item-duplicate">
+                        <a href="#">
+                            <img src="{{pic[pic.length-1].picAddr}}" />
+                        </a>
+                    </div>
+                    {{each pic value}}
+                    <div class="mui-slider-item">
+                        <a href="#">
+                            <img src="{{value.picAddr}}" />
+                        </a>
+                    </div>
+                    {{/each}}>
 
+                    <!--支持循环，需要重复图片节点-->
+                    <div class="mui-slider-item mui-slider-item-duplicate">
+                        <a href="#">
+                            <img src="{{pic[0].picAddr}}" />
+                        </a>
+                    </div>
+                </div>
+                <div class="mui-slider-indicator">
+                    {{each pic value index}}
+                    <div class="mui-indicator {{index == 0 ? 'mui-active' : ''}}"></div>
+                    {{/each}}
+                </div>
+            </div>
+        </section>
+        <section id="productDet">
+            <ul class="mui-table-view ">
+             <li class="mui-table-view-cell">
+                 名称:
+                 <strong>{{proName}}</strong>
+             </li>
+             <li class="mui-table-view-cell">
+                 价格：
+                 <span>￥{{price}}</span>
+                 <del>￥{{oldPrice}}</del>
+             </li>
+             <li class="mui-table-view-cell product-size">
+                 尺码:
+                 {{each size value}}
+                 <button type="button" class="btn-size" data-size="{{value}}">{{value}}</button>
+                 {{/each}}
+             </li>
+             <li class="mui-table-view-cell num">
+                 数量:
+                 <div class="mui-numbox" data-numbox-step='1' data-numbox-min='0' data-numbox-max='{{num}}'>
+                     <!-- "-"按钮，点击可减小当前数值 -->
+                     <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+                     <input class="mui-numbox-input amount" type="number" />
+                     <!-- "+"按钮，点击可增大当前数值 -->
+                     <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+                 </div>
+                 剩余:
+                 <span>{{num}}</span>件
+             </li>
+         </ul>
+         </section>
+    
+    </script>
 
 </body>
 

@@ -155,3 +155,22 @@ input[type="text"] {
 .sale-content ul li a p.buy .mui-btn-primary {
   background-color: #006699;
 }
+#regist form {
+  font-size: .14rem;
+}
+#regist form input {
+  font-size: .14rem;
+}
+#regist form .btn-verify {
+  position: absolute;
+  right: 0px;
+  bottom: .04rem;
+  background-color: #006699;
+  color: #fff;
+}
+#regist form .mui-button-row {
+  padding: .05rem .1rem;
+}
+#regist form .mui-button-row .btn-regist {
+  width: 100%;
+}

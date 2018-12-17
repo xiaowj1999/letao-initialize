@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>商品列表-letao</title>
+    <link rel="stylesheet" href="./lib/mui/css/mui.css">
+    <link rel="stylesheet" href="./lib/fontAwesome/css/font-awesome.css">
+    <link rel="stylesheet/less" href="./less/userInfo.less">
+    <script src="./lib/less/less.js"></script>
+    <script>
+        // 因为这个JS对页面渲染有影响放到前面写
+        function getHtmlFontsize() {
+            // 假设一个设计稿的宽度 750
+            var DesignWidth = 750;
+            var DesignFontSize = 200;
+            // 获取当前视口的宽度
+            var nowWidth = document.documentElement.clientWidth;
+            /*750 / 200 == 375 / 100
+             设计稿宽度 / 设计稿根元素 == 当前屏幕宽度 / 当前屏幕根元素
+             375 / (750 / 200) == 100
+             当屏幕宽度  / (设计稿宽度 / 设计稿的根元素)
+             320 / (750 / 200)  == 85.3333px */
+            /* 4 / 2 == 2 / x
+             2 / ( 4 / 2 )  == 1*/
+            var nowFontSize = nowWidth / (DesignWidth / DesignFontSize);
+            document.documentElement.style.fontSize = nowFontSize + 'px';
+        }
+        getHtmlFontsize();
+        window.addEventListener('resize', getHtmlFontsize);
+    </script>
+</head>
+
+<body>
+    <!-- letao搜索区域 -->
+    <header id="header">
+        <a href="javascript:history.back()" class="fa fa-arrow-left icon-back"></a>
+        <h4>会员中心</h4>
+    </header>
+
+    <!-- 表单登录信息 -->
+    <main id="userInfo">
+        <ul class="mui-table-view">
+
+            <li class="mui-table-view-cell mui-media">
+                <a href="javascript:;">
+                    <img class="mui-media-object mui-pull-left" src="images/user.jpg">
+                    <div class="mui-media-body">
+                        用户名:<span class="username">itcast</span>
+                        <p class='mui-ellipsis'>绑定手机:<span class="mobile">15102324243</span></p>
+                    </div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell">
+                <a class="mui-navigate-right">账号与安全</a>
+            </li>
+            <li class="mui-table-view-cell">
+                <a class="mui-navigate-right">我的购物车</a>
+            </li>
+            <li class="mui-table-view-cell">
+                <a class="mui-navigate-right">收获地址管理</a>
+            </li>
+            <li class="mui-table-view-cell">
+               <button type="button" class="btn-back">退出登录</button>
+            </li>
+        </ul>
+    </main>
+    <!-- 底部区域 -->
+    <footer id="footer">
+        <ul>
+            <li class="active">
+                <a href="index.html" class="fa fa-home">
+                    <span>首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="category.html" class="fa fa-bars">
+                    <span>分类</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="fa fa-shopping-cart">
+                    <span>购物车</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="fa fa-user">
+                    <span>会员中心</span>
+                </a>
+            </li>
+        </ul>
+    </footer>
+
+    <script src="./lib/zepto/zepto.min.js"></script>
+    <script src="./lib/mui/js/mui.min.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./js/userInfo.js"></script>
+</body>
+
+</html>

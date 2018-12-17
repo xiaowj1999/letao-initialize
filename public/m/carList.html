@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>letao移动web</title>
+    <link rel="stylesheet" href="./lib/mui/css/mui.css">
+    <link rel="stylesheet" href="./lib/fontAwesome/css/font-awesome.css">
+    <link rel="stylesheet/less" href="./less/carList.less">
+    <script src="./lib/less/less.js"></script>
+    <script>
+        // 因为这个JS对页面渲染有影响放到前面写
+        function getHtmlFontsize() {
+            // 假设一个设计稿的宽度 750
+            var DesignWidth = 750;
+            var DesignFontSize = 200;
+            // 获取当前视口的宽度
+            var nowWidth = document.documentElement.clientWidth;
+            /*750 / 200 == 375 / 100
+             设计稿宽度 / 设计稿根元素 == 当前屏幕宽度 / 当前屏幕根元素
+             375 / (750 / 200) == 100
+             当屏幕宽度  / (设计稿宽度 / 设计稿的根元素)
+             320 / (750 / 200)  == 85.3333px */
+            /* 4 / 2 == 2 / x
+             2 / ( 4 / 2 )  == 1*/
+            var nowFontSize = nowWidth / (DesignWidth / DesignFontSize);
+            document.documentElement.style.fontSize = nowFontSize + 'px';
+        }
+        getHtmlFontsize();
+        window.addEventListener('resize', getHtmlFontsize);
+    </script>
+</head>
+
+<body>
+    <!-- letao头部区域 -->
+    <header id="header">
+        <a href="javascript:history.back()" class="fa fa-arrow-left icon-back"></a>
+        <h4>购物车</h4>
+        <a href="search.html" class="fa fa-refresh icon-search"></a>
+    </header>
+    <main id="carbuy">
+        <!--下拉刷新容器-->
+        <div id="refreshContainer" class="mui-scroll-wrapper">
+            <div class="mui-scroll">
+                <ul class="mui-table-view cart-list">
+                    <li class="mui-table-view-cell mui-media">
+                        <!-- 右边默认看不到的内容 -->
+                        <div class="mui-slider-right mui-disabled">
+                            <a class="mui-btn mui-btn-primary">编辑</a>
+                            <a class="mui-btn mui-btn-danger">删除</a>
+                        </div>
+                        <a href="javascript:;" class="mui-slider-handle">
+                            <div class=" mui-pull-left mui-checkbox">
+                                <img class="mui-media-object" src="./images/detail.jpg">
+                                <input name="checkbox1" value="Item 1" type="checkbox">
+                            </div>
+                            <div class="mui-media-body">
+                                <p class="proName">李宁闪击篮球鞋驭帅10镭射队尚4男韦德之道空袭中高帮队尚3.5球鞋</p>
+                                <p class='proPrice'>
+                                    <span>￥499.1</span>
+                                    <del>￥888.1</del>
+                                </p>
+                                <div class="proParams">
+                                    <div class="proSize">鞋码:
+                                        <span>32</span>
+                                    </div>
+                                    <div class="proShu">x
+                                        <span>1</span>双</div>
+                                </div>
+                            </div>
+
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+    </main>
+    <!-- 订单区域 -->
+    <section id="order">
+        <!-- 左边的订单总额 -->
+        <div class="order-total">
+            订单总额: ￥
+            <span>0.00</span>
+        </div>
+        <!-- 右边的生成订单 -->
+        <button class="mui-btn mui-btn-danger" type="button">生成订单</button>
+    </section>
+    <footer id="footer">
+        <ul>
+            <li class="active">
+                <a href="index.html" class="fa fa-home">
+                    <span>首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="category.html" class="fa fa-bars">
+                    <span>分类</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="fa fa-shopping-cart">
+                    <span>购物车</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="fa fa-user">
+                    <span>会员中心</span>
+                </a>
+            </li>
+        </ul>
+    </footer>
+    <script src="./lib/zepto/zepto.min.js"></script>
+    <script src="./lib/mui/js/mui.min.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./js/carList.js"></script>
+    <script id="carbuyTpl" type="text/html">
+        {{if data.length > 0}}
+        {{each data value}}
+        <li class="mui-table-view-cell">
+                <a class="mui-navigate-right">
+                    <div class=" mui-pull-left">
+                        <img class="mui-media-object" src="{{value.pic[0].picAddr}}">
+                        <input name="checkbox1" value="Item 1" type="checkbox">
+                    </div>
+                    <div class="mui-media-body">
+                        <p class="proName">{{value.proName}}</p>
+                        <p class='proPrice'>
+                            <span>￥{{value.price}}</span>
+                            <del>￥{{value.oldPrice}}</del>
+                        </p>
+                        <div class="proParams">
+                            <div class="proSize">鞋码:<span>{{value.size}}</span></div>
+                            <div class="proShu">x<span>{{value.num}}</span>双</div>
+                        </div>
+                    </div>
+                    
+                </a>
+            </li>
+            {{/each}}
+            
+            {{else}}
+            <p>你的购物车空空如也</p>
+            {{/if}}
+    </script>
+</body>
+
+</html>

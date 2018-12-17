@@ -5,6 +5,11 @@
 body {
   background-color: #fff;
   padding: .45rem 0;
+  height: 100vh;
+}
+#main {
+  position: relative;
+  height: 100%;
 }
 li {
   list-style: none;
@@ -186,4 +191,10 @@ form .mui-btn {
 }
 #main ul .product-size .btn-size {
   margin: 0 .02rem;
+}
+#main ul .product-size .btn-size:first-of-type {
+  margin-left: .15rem;
+}
+#main ul .product-size .btn-size.active {
+  background-color: orange;
 }

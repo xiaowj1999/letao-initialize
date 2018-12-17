@@ -155,3 +155,11 @@ input[type="text"] {
 .sale-content ul li a p.buy .mui-btn-primary {
   background-color: #006699;
 }
+#userInfo ul li {
+  font-size: .14rem;
+}
+#userInfo ul li .btn-back {
+  width: 100%;
+  background-color: #006699;
+  color: #fff;
+}
