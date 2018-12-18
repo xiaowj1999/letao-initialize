@@ -91,12 +91,15 @@ input[type="text"] {
   padding-top: .02rem;
   display: block;
 }
-form {
+.mui-btn-primary {
+  background-color: #006699;
+}
+#checkout form {
   padding: 10px;
   display: flex;
   position: relative;
 }
-form input[type="text"] {
+#checkout form input[type="text"] {
   flex: 1;
   height: .3rem;
   border: 1px solid #006699;
@@ -104,7 +107,7 @@ form input[type="text"] {
   border-radius: .05rem 0px 0px .05rem;
   margin-bottom: 0px;
 }
-form .mui-btn-primary {
+#checkout form .mui-btn-primary {
   background-color: #006699;
   position: absolute;
   border: none;
@@ -112,7 +115,7 @@ form .mui-btn-primary {
   width: .6rem;
   height: .3rem;
 }
-form .mui-btn {
+#checkout form .mui-btn {
   border-radius: 0px .03rem .03rem 0px;
 }
 .sport-content ul,
@@ -165,4 +168,7 @@ form .mui-btn {
   font-size: .12rem;
   line-height: .3rem;
   background-color: #eee;
+}
+#main .sale-content ul {
+  padding-bottom: .45rem;
 }

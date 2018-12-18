@@ -1,19 +1,23 @@
 @import "base.less";
 
-body {
-    padding: .75rem 0px;
-}
 
 #carbuy {
-    height: 100%;
     font-size: .14rem;
     input[type="checkbox"]{
         position: static;
         display: block;
         margin: 0 auto;
+        &::before{
+            font-size: .2rem;
+        }
     }
+
     .mui-scroll-wrapper{
-        padding: .45rem 0;
+        padding: .45rem 0 .75rem 0px;
+        .mui-pull-top-pocket{
+            top: 44px;
+        }
+
     }
     .mui-pull-left{
         width: .6rem;
@@ -67,4 +71,9 @@ body {
 		font-weight: 600;
 		color:red;
 	}
+}
+
+
+.btn-size.active {
+    background-color: orange;
 }
